@@ -133,11 +133,12 @@ body {
   margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
+  background: #fffef8;
 }
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0;
+  padding: 50px 0;
 }
 section {
   margin: 50px 0;
@@ -173,10 +174,28 @@ nav li {
   padding: 0 10px;
   font-size: 1.2em;
 }
-
+nav li a,
+nav li a:visited {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: #000;
+}
+nav li a:hover,
 li:hover {
   color: #b1663c;
   cursor: pointer;
+}
+nav li a img {
+  height: 100%;
+}
+#active-page {
+  font-family: "Work Sans";
+  font-weight: 700;
 }
 #introduction {
   display: flex;
@@ -244,7 +263,6 @@ li:hover {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
-
 .gallery img {
   width: 100%;
 }
@@ -264,7 +282,6 @@ li:hover {
   display: flex;
   flex-direction: column;
 }
-
 #contact input {
   height: 50px;
   font-size: 1.2em;
@@ -279,9 +296,11 @@ li:hover {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"] {
+#contact input[type="submit"] {
+  cursor: pointer;
   font-family: "Syne";
   font-weight: 700;
+  font-size: 0.9rem;
   color: white;
   background-color: #1d6154;
   margin: 2em auto;
@@ -290,8 +309,73 @@ input[type="submit"] {
   border-radius: 60px;
 }
 
+footer {
+  width: 100%;
+  background: #fff;
+}
 footer nav ul {
+  height: 60px;
   display: flex;
   justify-content: flex-end;
-  margin: 2em;
+  align-items: center;
+  /* margin: 2em 0; */
+}
+footer nav ul li {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* Styles spécifiques pour la page login.html */
+.login-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#login {
+  width: 35%;
+  margin: 10% auto;
+  flex-grow: 1;
+}
+#login > * {
+  text-align: center;
+}
+#login h2 {
+  margin-bottom: 20px;
+}
+#login form {
+  text-align: left;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+#login input {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#login label {
+  margin: 2em 0 0.5em 0;
+}
+
+#login a,
+#login a:visited {
+  color: #000;
+}
+#login a:hover {
+  color: #b1663c;
+}
+
+#login input[type="submit"] {
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 180px;
+  height: 36px;
+  text-align: center;
+  border-radius: 60px;
+  cursor: pointer;
 }
