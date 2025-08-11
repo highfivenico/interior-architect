@@ -333,7 +333,7 @@ footer nav ul li {
 }
 #login {
   width: 35%;
-  margin: 10% auto;
+  margin: 20px auto;
   flex-grow: 1;
 }
 #login > * {
@@ -342,9 +342,13 @@ footer nav ul li {
 #login h2 {
   margin-bottom: 20px;
 }
+#login-message {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 #login form {
   text-align: left;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -353,9 +357,10 @@ footer nav ul li {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 #login label {
-  margin: 2em 0 0.5em 0;
+  margin: 0.5em 0;
 }
 
 #login a,
@@ -378,4 +383,31 @@ footer nav ul li {
   text-align: center;
   border-radius: 60px;
   cursor: pointer;
+}
+
+#login-message {
+  height: 20px;
+}
+#login input.error {
+  border-color: rgba(244, 67, 54, 0.9);
+  box-shadow: 0 0 8px rgba(244, 67, 54, 0.9);
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-5px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
