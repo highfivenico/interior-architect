@@ -135,6 +135,7 @@ body {
   font-size: 14px;
   background: #fffef8;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -220,10 +221,16 @@ nav li a img {
 #introduction p {
   margin-bottom: 0.5em;
 }
-#portfolio h2 {
+
+#title-container {
+  position: relative;
   text-align: center;
   margin-bottom: 1em;
 }
+#portfolio h2 {
+  display: inline-block;
+}
+
 .filters {
   display: flex;
   justify-content: center;
@@ -295,7 +302,6 @@ nav li a img {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-
 #contact input[type="submit"] {
   cursor: pointer;
   font-family: "Syne";
@@ -323,6 +329,293 @@ footer nav ul {
 footer nav ul li {
   font-size: 0.9rem;
   font-weight: 300;
+}
+
+/* Styles spécifiques pour le mode edition */
+.edit-mode-banner {
+  width: 100%;
+  height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #fff;
+}
+.icon {
+  margin-right: 0.5rem;
+}
+.edit-btn {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: 120px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #000;
+  text-decoration: none;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 600ms ease-out both;
+}
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  width: 630px;
+  overflow-y: scroll;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideFromBottom 800ms ease-out both 200ms;
+  transform-origin: center bottom;
+}
+.nav-modal {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.back-to-gallery {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  padding: 0;
+}
+.modal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.titlemodal {
+  margin-bottom: 40px;
+  font-family: "work sans";
+  font-size: 26px;
+  font-weight: 400;
+  color: #000;
+}
+.modal-gallery {
+  position: relative;
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.modal-gallery figure {
+  position: relative;
+}
+.modal-gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.delete-project-btn {
+  position: absolute;
+  top: 3px;
+  right: 2px;
+  border: none;
+  background: none;
+  padding: 0;
+}
+.delete-project i {
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  padding: 3px 1px;
+  color: #fff;
+  background-color: #000000;
+}
+#modal-gallery-page .separator-line {
+  width: 70%;
+}
+.separator-line {
+  margin: 50px 0;
+  height: 1px;
+  width: 100%;
+  background: #b3b3b3;
+}
+.add-project {
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #1d6154;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 60px;
+  padding: 10px 50px;
+  cursor: pointer;
+  text-decoration: none;
+}
+#modal-add-project-page h2 {
+  margin-bottom: 0;
+}
+#add-project-form {
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+#drop-container {
+  position: relative;
+  height: 169px;
+  background: #e8f1f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #444444;
+  font-size: 0.6rem;
+  font-weight: 400;
+  transition: 100ms ease;
+}
+#drop-container.drag-active {
+  background: #d2e1e9;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.drop-container-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.photo-icon {
+  font-size: 4.5rem;
+  color: #b9c5cc;
+}
+.add-photo-btn {
+  cursor: pointer;
+  background: #cbd6dc;
+  color: #306685;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Work sans";
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5em 2em;
+  border-radius: 60px;
+  border: none;
+  transition: 100ms ease;
+}
+.add-photo-btn:hover {
+  color: #cbd6dc;
+  background: #4983a5;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+}
+#add-photo {
+  display: none;
+}
+.photo-preview {
+  position: absolute;
+  display: none;
+  height: 100%;
+}
+#add-project-form label {
+  margin: 2em 0 1em 0;
+}
+#title,
+#category-selection {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#addBtn {
+  cursor: pointer;
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+  background-color: #1d6154;
+  margin: 0 auto;
+  padding: 0.5em;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+  border: none;
+}
+
+#addBtn:disabled {
+  cursor: default;
+  background: #a7a7a7;
+}
+.modal-hidden {
+  display: none;
+}
+
+.modal[aria-hidden="true"] {
+  animation: fadeOut 600ms ease-in both;
+}
+
+.modal[aria-hidden="true"] .modal-wrapper {
+  animation: slideToBottom 800ms ease-in both 100ms;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30vh) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideToBottom {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30vh) scale(0.95);
+  }
 }
 
 /* Styles spécifiques pour la page login.html */
@@ -357,7 +650,7 @@ footer nav ul li {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: 200ms ease;
 }
 #login label {
   margin: 0.5em 0;
