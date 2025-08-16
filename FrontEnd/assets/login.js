@@ -29,7 +29,7 @@ const getToken = async (login) => {
   // Vérifie la réponse de l'API et redirige l'utilisateur ou l'informe d'une erreur d'authentification
   if (token.token) {
     // Affiche le message de validation de la connexion
-    displayMessage("Connexion réussie !", "rgb(76, 175, 80)");
+    displayMessage("Connexion réussie !", "#1d6154");
     // Enregistre le token dans le sessionStorage
     sessionStorage.setItem("token", token.token);
     // Redirige vers la page principale en mode "Edition"
@@ -38,17 +38,14 @@ const getToken = async (login) => {
     }, 1000);
   } else {
     // Affiche le message d'erreur
-    displayMessage(
-      "Identifiants incorrects. Veuillez réessayer.",
-      "rgb(244, 67, 54)"
-    );
+    displayMessage("Erreur dans l’identifiant ou le mot de passe", "#D32F2F");
   }
 };
 
 //---- Fonction pour afficher l'erreur sur un champ
 const showError = (input) => {
   // Affiche le message d'erreur
-  displayMessage("Veuillez renseigner tous les champs.", "rgb(244, 67, 54)");
+  displayMessage("Veuillez renseigner tous les champs.", "#D32F2F");
   // Ajoute la classe d'erreur pour déclencher l'animation
   input.classList.add("error");
   // Retirer la classe 'error' après l'animation

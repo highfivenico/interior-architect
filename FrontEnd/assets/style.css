@@ -198,8 +198,35 @@ nav li a img {
   font-family: "Work Sans";
   font-weight: 700;
 }
+
+main {
+  margin: auto;
+  max-width: 950px;
+}
+
+.btn {
+  cursor: pointer;
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #1d6154;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 60px;
+  padding: 10px 50px;
+  text-decoration: none;
+  border: none;
+  transition: 200ms ease;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #0e2f28;
+}
+
 #introduction {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 #introduction figure {
@@ -208,20 +235,23 @@ nav li a img {
 #introduction img {
   display: block;
   margin: auto;
-  width: 80%;
+  width: 100%;
 }
 
 #introduction article {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   flex: 1;
 }
-#introduction h2 {
+#introduction h2,
+#introduction p {
+  margin-left: 80px;
   margin-bottom: 1em;
 }
-
-#introduction p {
-  margin-bottom: 0.5em;
+#portfolio {
+  margin-top: 150px;
 }
-
 #title-container {
   position: relative;
   text-align: center;
@@ -237,18 +267,14 @@ nav li a img {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 30px;
+  margin: 50px;
   max-width: 100%;
 }
 .filter-button {
   all: unset;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: "Syne", sans-serif;
-  font-size: 16px;
-  max-width: 100%;
+  font-size: 1rem;
   font-weight: 700;
   color: #1d6154;
   border: 1px solid #1d6154;
@@ -256,13 +282,12 @@ nav li a img {
   padding: 8px 16px;
   transition: 200ms ease;
 }
-.filter-button:hover,
-.filter-button:focus,
-.filter-button:active {
+.filter-button-active {
   background-color: #1d6154;
   color: #fff;
   outline: none;
 }
+
 .gallery {
   width: 100%;
   display: grid;
@@ -271,21 +296,34 @@ nav li a img {
   grid-row-gap: 20px;
 }
 .gallery img {
+  object-fit: cover;
   width: 100%;
+  height: 100%;
+  max-width: 305px;
+  max-height: 407px;
+}
+.gallery figcaption {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-top: 0.4rem;
 }
 #contact {
   width: 50%;
   margin: auto;
+  padding-top: 20px;
 }
 #contact > * {
   text-align: center;
 }
 #contact h2 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+#contact p {
+  font-size: 1rem;
 }
 #contact form {
   text-align: left;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -303,16 +341,10 @@ nav li a img {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 #contact input[type="submit"] {
-  cursor: pointer;
-  font-family: "Syne";
-  font-weight: 700;
   font-size: 0.9rem;
-  color: white;
-  background-color: #1d6154;
-  margin: 2em auto;
+  margin: 3rem auto;
   width: 180px;
-  text-align: center;
-  border-radius: 60px;
+  height: 36px;
 }
 
 footer {
@@ -355,7 +387,6 @@ footer nav ul li {
   color: #000;
   text-decoration: none;
 }
-
 .modal {
   position: fixed;
   display: flex;
@@ -365,7 +396,7 @@ footer nav ul li {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.3);
   animation: fadeIn 600ms ease-out both;
 }
 .modal-wrapper {
@@ -386,7 +417,7 @@ footer nav ul li {
 .nav-modal {
   position: relative;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .back-to-gallery {
   cursor: pointer;
@@ -396,6 +427,9 @@ footer nav ul li {
   border: none;
   padding: 0;
 }
+.back-to-gallery i {
+  font-size: 1.5rem;
+}
 .close-btn {
   background: none;
   border: none;
@@ -404,6 +438,9 @@ footer nav ul li {
   right: 0;
   padding: 0;
 }
+.close-btn i {
+  font-size: 1.1rem;
+}
 .modal-page {
   display: flex;
   flex-direction: column;
@@ -411,7 +448,7 @@ footer nav ul li {
   width: 100%;
 }
 .titlemodal {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   font-family: "work sans";
   font-size: 26px;
   font-weight: 400;
@@ -422,7 +459,7 @@ footer nav ul li {
   width: 70%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  gap: 25px 10px;
 }
 .modal-gallery figure {
   position: relative;
@@ -452,23 +489,10 @@ footer nav ul li {
   width: 70%;
 }
 .separator-line {
-  margin: 50px 0;
+  margin: 60px 0 40px;
   height: 1px;
   width: 100%;
   background: #b3b3b3;
-}
-.add-project {
-  font-family: "Syne";
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #fff;
-  background-color: #1d6154;
-  margin: 0 auto;
-  text-align: center;
-  border-radius: 60px;
-  padding: 10px 50px;
-  cursor: pointer;
-  text-decoration: none;
 }
 #modal-add-project-page h2 {
   margin-bottom: 0;
@@ -502,7 +526,7 @@ footer nav ul li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .photo-icon {
   font-size: 4.5rem;
@@ -518,10 +542,11 @@ footer nav ul li {
   font-family: "Work sans";
   font-weight: 500;
   font-size: 0.9rem;
-  padding: 0.5em 2em;
+  width: 173px;
+  height: 36px;
   border-radius: 60px;
   border: none;
-  transition: 100ms ease;
+  transition: 200ms ease;
 }
 .add-photo-btn:hover {
   color: #cbd6dc;
@@ -541,38 +566,29 @@ footer nav ul li {
 }
 #title,
 #category-selection {
+  padding: 0 0.5rem;
   height: 50px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 #addBtn {
-  cursor: pointer;
-  font-family: "Syne";
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: white;
-  background-color: #1d6154;
-  margin: 0 auto;
-  padding: 0.5em;
-  width: 180px;
-  text-align: center;
-  border-radius: 60px;
-  border: none;
+  width: 237px;
+  height: 36px;
 }
-
-#addBtn:disabled {
+#addBtn:disabled,
+#addBtn:hover:disabled,
+#addBtn:focus:disabled {
+  pointer-events: none;
   cursor: default;
   background: #a7a7a7;
 }
 .modal-hidden {
   display: none;
 }
-
 .modal[aria-hidden="true"] {
   animation: fadeOut 600ms ease-in both;
 }
-
 .modal[aria-hidden="true"] .modal-wrapper {
   animation: slideToBottom 800ms ease-in both 100ms;
 }
@@ -618,6 +634,42 @@ footer nav ul li {
   }
 }
 
+/* Styles spécifiques pour la modale de message */
+.message-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.message-modal-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  font-size: 1rem;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  height: 20%;
+  max-height: 200px;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+.message-modale-close {
+  position: absolute;
+  cursor: pointer;
+  color: #000000;
+  right: 10px;
+  top: 10px;
+  font-size: 14px;
+}
+
 /* Styles spécifiques pour la page login.html */
 .login-page {
   height: 100vh;
@@ -626,7 +678,7 @@ footer nav ul li {
 }
 #login {
   width: 35%;
-  margin: 20px auto;
+  margin: 7% auto 0;
   flex-grow: 1;
 }
 #login > * {
@@ -639,13 +691,13 @@ footer nav ul li {
   font-size: 1rem;
   font-weight: 700;
 }
-
 #login form {
   text-align: left;
   display: flex;
   flex-direction: column;
 }
 #login input {
+  padding: 0 0.5rem;
   height: 50px;
   font-size: 1.2em;
   border: none;
@@ -655,7 +707,6 @@ footer nav ul li {
 #login label {
   margin: 0.5em 0;
 }
-
 #login a,
 #login a:visited {
   color: #000;
@@ -663,7 +714,6 @@ footer nav ul li {
 #login a:hover {
   color: #b1663c;
 }
-
 #login input[type="submit"] {
   font-family: "Syne";
   font-weight: 700;
@@ -676,14 +726,19 @@ footer nav ul li {
   text-align: center;
   border-radius: 60px;
   cursor: pointer;
+  transition: 100ms;
+}
+#login input[type="submit"]:hover,
+#login input[type="submit"]:focus {
+  background-color: #0e2f28;
 }
 
 #login-message {
   height: 20px;
 }
 #login input.error {
-  border-color: rgba(244, 67, 54, 0.9);
-  box-shadow: 0 0 8px rgba(244, 67, 54, 0.9);
+  border-color: #d32f2f;
+  box-shadow: 0 0 4px #d32f2f;
   animation: shake 0.5s ease-in-out;
 }
 
