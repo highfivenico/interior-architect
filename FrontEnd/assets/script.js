@@ -141,6 +141,20 @@ if (token && editMode) {
     ' <i class="icon fa-regular fa-pen-to-square"></i><p>mode édition</p>';
   body.insertBefore(editModeBanner, body.firstChild);
 
+  // Change le bouton login en bouton logout
+  const loginButton = document.getElementById("login-logout-btn");
+  loginButton.textContent = "logout";
+
+  const logout = (e) => {
+    e.preventDefault();
+    // Supprime le token du sessionStorage
+    sessionStorage.removeItem("token");
+    // Redirige vers la page de connexion
+    window.location.href = "index.html";
+  };
+  // Initialise le bouton logout
+  loginButton.addEventListener("click", logout);
+
   // Crée le bouton du mode édition
   const titleContainer = document.getElementById("title-container");
   titleContainer.style.margin = "80px 0";
