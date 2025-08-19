@@ -460,10 +460,27 @@ const initModalNavigation = () => {
   goToAddProjectBtn.addEventListener("click", goToAddProject);
 };
 
+//---- Effectue une requête à l'API pour récupérer les catégories
+const fetchCategories = async () => {
+  try {
+    const response = await fetch("http://localhost:5678/api/categories");
+    if (!response.ok) {
+      throw new Error("Erreur lors de la récupération des catégories");
+    }
+    let projectsCategories = await response.json();
+    return projectsCategories;
+  } catch (error) {
+    showMessageModal(
+      "Une erreur est survenue lors de la récupération des catégories."
+    );
+    return [];
+  }
+};
+
 //---- Ajoute les categories dans l'input select
 const categorySelectInput = async () => {
-  const selectInput = document.getElementById("category-selection");
   // Vide les catégories existantes et crée l'option de consigne
+  const selectInput = document.getElementById("category-selection");
   selectInput.innerHTML = ` <option
                 disabled
                 selected
@@ -471,16 +488,17 @@ const categorySelectInput = async () => {
                 label=""
               ></option>`;
   // Crée un tableau de catégories uniques à partir des projets récupérés
-  const projects = await fetchprojects();
+  const projects = await fetchCategories();
   const categories = projects.filter(
     (project, index, array) =>
-      index === array.findIndex((u) => u.id === project.categoryId)
+      index === array.findIndex((u) => u.id === project.id)
   );
+
   // Crée et ajoute une option de selection pour chaque catégorie
   categories.forEach((category) => {
     const categoryOption = document.createElement("option");
-    categoryOption.value = category.category.id;
-    categoryOption.textContent = category.category.name;
+    categoryOption.value = category.id;
+    categoryOption.textContent = category.name;
     selectInput.appendChild(categoryOption);
   });
 };
